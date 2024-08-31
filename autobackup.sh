@@ -9,5 +9,5 @@ BACKUPNAME="testfolder_bak_$(date +"%I-%M").tar"
 cd $DESTINATION
 tar -cf $BACKUPNAME $SOURCE
 
-# crontab command to run every minutes
+# crontab command to run every minute
 # */1 * * * * /home/datski/latterepo1/autobackup.sh
