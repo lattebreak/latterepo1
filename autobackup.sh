@@ -7,7 +7,7 @@ BACKUPNAME="testfolder_bak_$(date +"%I-%M").tar"
 
 # BACKUP "testfolder" to "backupfolder" directory
 cd $DESTINATION
-tar -cf $BACKUPNAME $SOURCE
+tar -czf $BACKUPNAME $SOURCE
 
 # crontab command to run every minute
 # */1 * * * * /home/datski/latterepo1/autobackup.sh
