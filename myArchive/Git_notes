@@ -1,3 +1,0 @@
-1. git config --global credential.helper store #Only done once to configure credentials
-2. create remote repository on Github
-3. git clone "<URL>"
