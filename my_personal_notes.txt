@@ -1,0 +1,21 @@
+References:
+https://github.com/devopsjourney1/jenkins-101
+https://www.youtube.com/watch?v=6YZvp2GwT0A&t=2660s
+
+***************************************************************
+
+[ View file system of Jenkins running on Docker container ]
+
+# This will open the bash shell of the jenkins container
+1. docker exec -it jenkins-blueocean bash
+
+-i # Interactive
+-t # Allocate a pseudo-TTY -- needed for interactive shells
+
+***************************************************************
+
+[ View Jenkins Home directory ]
+/var/jenkins_home
+
+[ View workspace ]
+/var/jenkins_home/workspace
