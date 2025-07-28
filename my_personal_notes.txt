@@ -20,4 +20,29 @@ https://www.youtube.com/watch?v=6YZvp2GwT0A&t=2660s
 [ View workspace ]
 /var/jenkins_home/workspace
 
-*stopped at 33:57
+***************************************************************
+
+29 July 1:54AM notes:
+ERROR="jenkins doesn't have label"
+
+Cause: If using a VM as host, restarting the VM changes the alpine/socat IP.
+Remember that alpine/socat is the network communication middleman between Jenkins and Docker
+
+Solution: Identify the new IP of alpine/socat container by inspecting the Jenkins network
+Then reconfigure the Jenkins Cloud agent Host URI to use the new alpine/socat container IP.
+
+Initial script to spin up alpine/socat:
+docker run -d --restart=always -p 127.0.0.1:2376:2375 --network jenkins -v /var/run/docker.sock:/var/run/docker.sock alpine/socat tcp-listen:2375,fork,reuseaddr unix-connect:/var/run/docker.sock
+
+Additional suggestion from Google Gemini:
+docker run -d --restart=always \
+  --name socat-proxy-for-docker-host \ # <--- Give it a clear name!
+  -p 127.0.0.1:2376:2375 \
+  --network jenkins \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  alpine/socat tcp-listen:2375,fork,reuseaddr unix-connect:/var/run/docker.sock
+
+For the Docker Host URI, change it from tcp://172.18.0.3:2375 to:
+tcp://socat-proxy-for-docker-host:2375 (using the name you chose in the docker run command).
+
+**I think is is a very good practice for this specific setup/requirement
