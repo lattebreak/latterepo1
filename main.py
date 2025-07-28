@@ -1,2 +1,1 @@
-print("Hello, EARTH!")
-print("New desktop")
+print("The Poll SCM Jenkins configuration has worked successfully!")
