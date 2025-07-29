@@ -46,3 +46,12 @@ For the Docker Host URI, change it from tcp://172.18.0.3:2375 to:
 tcp://socat-proxy-for-docker-host:2375 (using the name you chose in the docker run command).
 
 **I think is is a very good practice for this specific setup/requirement
+
+
+***************************************************************
+
+[ PIPELINE SYNTAX ]
+
+https://www.jenkins.io/doc/book/pipeline/syntax/
+
+For triggers: lookup "triggers" -- where triggers { pollSCM('H */4 * * 1-5') } can be found
