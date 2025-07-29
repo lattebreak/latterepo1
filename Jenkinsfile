@@ -8,9 +8,6 @@ pipeline {
             label 'docker-agent-alpine-py3'
         }
     }
-      triggers {
-        pollSCM('H/5 * * * *')
-    }
     stages {
         stage('Build') {
             steps {
