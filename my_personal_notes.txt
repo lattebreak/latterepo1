@@ -121,3 +121,5 @@ python -m venv venv
 source venv/bin/activate
 
 Tried to follow creating virtual environment first. Worked for build stage. Trying if venv gets retained from build stage and just reactivate on test stage
+
+IT WORKED!
