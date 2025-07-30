@@ -14,7 +14,7 @@ pipeline {
                 echo "Building.."
                 sh '''
                 cd myapp
-                pip install requirements.txt
+                pip install requirements.txt --break-system-packages
                 '''
             }
         }
