@@ -14,10 +14,7 @@ pipeline {
                 echo "Building.."
                 sh '''
                 cd myapp
-                apk update
-                apk add py3-virtualenv
-                virtualenv my_env
-                source my_env/bin/activate
+                source venv/bin/activate
                 pip install requirements.txt
                 '''
             }

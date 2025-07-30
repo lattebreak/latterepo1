@@ -5,7 +5,7 @@ FROM jenkins/agent:alpine-jdk17
 USER root
 
 # INSTALL PYTHON3 ON ALPINE LINUX USING ALPINE PACKAGE MANAGER -- apk
-RUN apk add --no-cache python3 py3-pip
+RUN apk add --no-cache python3 py3-pip py3-virtualenv
 
 # SWITCH USER BACK TO JENKINS
 USER jenkins
