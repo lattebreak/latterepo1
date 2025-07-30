@@ -62,6 +62,7 @@ For triggers: lookup "triggers" -- where triggers { pollSCM('H */4 * * 1-5') } c
 
 Error encountered:
 
+###
 + pip install requirements.txt
 error: externally-managed-environment
 
@@ -90,16 +91,18 @@ error: externally-managed-environment
 
 note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
 hint: See PEP 668 for the detailed specification.
+###
 
 Best advice so far is to create a virtual environment and do the pip install <package> there.
 Earlier tried to create and activate venv but encountered this:
 
+###
 Building..
 [Pipeline] sh
 + cd myapp
 + source .venv/bin/activate
 /home/jenkins/workspace/jenkins-pipeline-1@tmp/durable-3c79fbcb/script.sh.copy: source: line 3: can't open '.venv/bin/activate': No such file or directory
-
+###
 
 
 This was easily solved by the --break-system-packages flag on the pipeline declaration:
