@@ -55,3 +55,58 @@ tcp://socat-proxy-for-docker-host:2375 (using the name you chose in the docker r
 https://www.jenkins.io/doc/book/pipeline/syntax/
 
 For triggers: lookup "triggers" -- where triggers { pollSCM('H */4 * * 1-5') } can be found
+
+***************************************************************
+
+07/31/2025
+
+Error encountered:
+
++ pip install requirements.txt
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> 
+    The system-wide python installation should be maintained using the system
+    package manager (apk) only.
+    
+    If the package in question is not packaged already (and hence installable via
+    "apk add py3-somepackage"), please consider installing it inside a virtual
+    environment, e.g.:
+    
+    python3 -m venv /path/to/venv
+    . /path/to/venv/bin/activate
+    pip install mypackage
+    
+    To exit the virtual environment, run:
+    
+    deactivate
+    
+    The virtual environment is not deleted, and can be re-entered by re-sourcing
+    the activate file.
+    
+    To automatically manage virtual environments, consider using pipx (from the
+    pipx package).
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+
+Best advice so far is to create a virtual environment and do the pip install <package> there.
+Earlier tried to create and activate venv but encountered this:
+
+Building..
+[Pipeline] sh
++ cd myapp
++ source .venv/bin/activate
+/home/jenkins/workspace/jenkins-pipeline-1@tmp/durable-3c79fbcb/script.sh.copy: source: line 3: can't open '.venv/bin/activate': No such file or directory
+
+
+
+This was easily solved by the --break-system-packages flag on the pipeline declaration:
+pip install -r requirements.txt --break-system-packages
+
+However, based on StackOverflow, this flag shouldn't be abused.
+https://stackoverflow.com/questions/75608323/how-do-i-solve-error-externally-managed-environment-every-time-i-use-pip-3
+
+The most upvoted answer says:
+"The proper way to install Python libraries and applications is to install them in a Python virtual environment whenever possible (the exceptions to this rule are quite rare)."
