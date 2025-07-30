@@ -113,3 +113,9 @@ https://stackoverflow.com/questions/75608323/how-do-i-solve-error-externally-man
 
 The most upvoted answer says:
 "The proper way to install Python libraries and applications is to install them in a Python virtual environment whenever possible (the exceptions to this rule are quite rare)."
+
+
+I think I need to create a virtual environment first, like the usual process:
+cd /path/to/your/project
+python -m venv venv
+source venv/bin/activate
