@@ -119,3 +119,5 @@ I think I need to create a virtual environment first, like the usual process:
 cd /path/to/your/project
 python -m venv venv
 source venv/bin/activate
+
+Tried to follow creating virtual environment first. Worked for build stage. Trying if venv gets retained from build stage and just reactivate on test stage
