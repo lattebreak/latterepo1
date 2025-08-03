@@ -1,1 +1,0 @@
-print("The Poll SCM Jenkins configuration has worked successfully!")

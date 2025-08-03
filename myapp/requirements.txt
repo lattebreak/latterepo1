@@ -1,3 +1,0 @@
-# This code is from https://github.com/devopsjourney1/jenkins-101/blob/master/myapp/requirements.txt
-
-fire==0.4.0
